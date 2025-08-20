@@ -5,12 +5,12 @@ let isListening = false;
 let userManuallyStopped = false;
 
 // Helpers
-function el(id){ return document.getElementById(id); }
-function setStatus(msg){ const s = el('sr-status'); if (s) s.textContent = msg || ''; }
-function setError(msg){ const e = el('sr-error'); if (e) e.textContent = msg || ''; }
+function el(id) { return document.getElementById(id); }
+function setStatus(msg) { const s = el('sr-status'); if (s) s.textContent = msg || ''; }
+function setError(msg) { const e = el('sr-error'); if (e) e.textContent = msg || ''; }
 
 // Build recognizer
-function createRecognition(){
+function createRecognition() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) return null;
   const r = new SR();
@@ -22,12 +22,13 @@ function createRecognition(){
 }
 
 // Start listening
-function startListening(){
+function startListening() {
   const input = el('chat-input');
-  if (!input){ setError('Input element not found.'); return; }
+  const sendButton = el('chat-send-btn'); // Get the send button
+  if (!input) { setError('Input element not found.'); return; }
 
   recognition = createRecognition();
-  if (!recognition){ setError('Speech recognition API not available in this browser.'); return; }
+  if (!recognition) { setError('Speech recognition API not available in this browser.'); return; }
 
   let finalText = '';
   userManuallyStopped = false;
@@ -35,14 +36,17 @@ function startListening(){
   recognition.onstart = () => {
     isListening = true;
     setStatus('🎙️ Listening…');
-    el('mic-btn')?.setAttribute('aria-pressed','true');
+    el('mic-btn')?.setAttribute('aria-pressed', 'true');
     input.dataset.origPlaceholder = input.placeholder || '';
     input.placeholder = 'Listening…';
+
+    // Disable the send button while listening
+    if (sendButton) sendButton.disabled = true;
   };
 
   recognition.onresult = (event) => {
     let interim = '';
-    for (let i = event.resultIndex; i < event.results.length; i++){
+    for (let i = event.resultIndex; i < event.results.length; i++) {
       const res = event.results[i];
       if (res.isFinal) finalText += res[0].transcript;
       else interim += res[0].transcript;
@@ -52,7 +56,7 @@ function startListening(){
 
   // Extra safety: some engines also fire this on silence
   recognition.onspeechend = () => {
-    try { recognition.stop(); } catch {}
+    try { recognition.stop(); } catch { }
   };
 
   recognition.onerror = (event) => {
@@ -62,12 +66,15 @@ function startListening(){
 
   recognition.onend = () => {
     isListening = false;
-    el('mic-btn')?.setAttribute('aria-pressed','false');
+    el('mic-btn')?.setAttribute('aria-pressed', 'false');
     if (input) input.placeholder = input.dataset.origPlaceholder || 'Ask or press the mic';
+
+    // Re-enable the send button after listening ends
+    if (sendButton) sendButton.disabled = false;
 
     // Auto-send if we have text and the user didn't manually stop
     const txt = (input?.value || '').trim();
-    if (txt && !userManuallyStopped && typeof window.sendFromInput === 'function'){
+    if (txt && !userManuallyStopped && typeof window.sendFromInput === 'function') {
       window.sendFromInput();
     }
   };
@@ -80,23 +87,28 @@ function startListening(){
 }
 
 // Stop listening
-function stopListening(manual = false){
+function stopListening(manual = false) {
   userManuallyStopped = manual === true;
-  if (recognition){
-    try { recognition.stop(); } catch {}
+  if (recognition) {
+    try { recognition.stop(); } catch { }
     recognition = null;
   }
   isListening = false;
   setStatus('');
-  el('mic-btn')?.setAttribute('aria-pressed','false');
+  el('mic-btn')?.setAttribute('aria-pressed', 'false');
   const input = el('chat-input');
+  const sendButton = el('chat-send-btn'); // Get the send button
+
+  // Re-enable the send button when stopped
+  if (sendButton) sendButton.disabled = false;
+
   if (input) input.placeholder = input.dataset?.origPlaceholder || 'Ask or press the mic';
 }
 
 // Toggle mic (wired to onclick on the button)
-function toggleMic(){
+function toggleMic() {
   setError('');
-  if (!('SpeechRecognition' in window) && !('webkitSpeechRecognition' in window)){
+  if (!('SpeechRecognition' in window) && !('webkitSpeechRecognition' in window)) {
     setError('Speech recognition not supported in this browser. Try Chrome or Edge.');
     return;
   }
