@@ -244,6 +244,10 @@
       }
       .chat-option-btn:hover {
         background-color: #f3f4f6;
+        background: #f0f0f0;
+        border-color: #999;
+        color: #000;
+        text-decoration: none;
       }
 
       .chat-footer {
@@ -300,6 +304,33 @@
         justify-content: center;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
+
+       .resorts-options {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin: 15px 0px 15px 45px;
+        }
+        
+        .resorts-option-btn {
+          padding: 6px 14px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          background: #fff;
+          color: #a00;
+          cursor: pointer;
+          text-decoration: none;
+          font-size: 14px;
+          transition: all 0.3s ease;
+        }
+        
+        .resorts-option-btn:hover {
+          background: #a00;
+          color: #fff;
+          border-color: #a00;
+          text-decoration: none;
+        }
+
       .back-btn {
         background: transparent;
         border: none;
@@ -420,6 +451,10 @@
           <div class="chat-options" id="chat-options">
             <button class="chat-option-btn" onclick="handleChatOption('Resort Info')">Resort Info</button>
             <button class="chat-option-btn" onclick="handleChatOption('AI Help')">AI Help</button>
+            <a href="https://karmaclub.karmagroup.com/member/hot-deals/" target="_blank"
+              class="chat-option-btn" style="text-decoration: none;">
+              HOT DEALS
+            </a>
           </div>
 
           <div class="chat-footer">
@@ -483,6 +518,20 @@
           </div>
         </div>
       </div>
+
+      ${
+        option === "Resort Info"
+          ? `<div class="resorts-options">
+              <a href="https://karmagroup.com/find-destination/karma-resorts/karma-kandara/" target="_blank" class="resorts-option-btn">Karma Kandara</a>
+              <a href="https://karmagroup.com/find-destination/karma-retreats/karma-fushi/" target="_blank" class="resorts-option-btn">Karma Fushi</a>
+              <a href="https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/" target="_blank" class="resorts-option-btn">Karma Royal Haathi Mahal</a>
+              <a href="https://karmagroup.com/find-destination/karma-retreats/karma-bayon/" target="_blank" class="resorts-option-btn">Karma Bayon</a>
+              <a href="https://karmagroup.com/find-destination/karma-retreats/karma-karnak/" target="_blank" class="resorts-option-btn">Karma Karnak</a>
+              <a href="https://karmagroup.com/find-destination/karma-resorts/karma-chateau-de-samary/" target="_blank" class="resorts-option-btn">Karma Château de Samary</a>
+              <a href="https://karmagroup.com/find-destination/karma-resorts/karma-salford-hall/" target="_blank" class="resorts-option-btn">Karma Salford Hall</a>
+            </div>`
+          : ""
+      }
 
       <div class="chat-footer">
         <div class="chat-input-row">
