@@ -214,7 +214,7 @@
       setError('');
       if(!('SpeechRecognition' in window) && !('webkitSpeechRecognition' in window)){
         setError('Speech recognition not supported (try Chrome/Edge or Safari iOS 16+).');
-        return;
+        return;   
       }
       if(currentPage!=='chat'){
         setError('Start chat first to use the microphone.');
