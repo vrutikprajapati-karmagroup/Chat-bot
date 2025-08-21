@@ -1,0 +1,274 @@
+{
+  "resort": {
+    "id": "karma-royal-haathi-mahal",
+    "name": "Karma Royal Haathi Mahal",
+    "destination": "Goa, India",
+    "meta": {
+      "page_title": "Book Karma Royal Haathi Mahal & relax on Cavelossim Beach, Goa India",
+      "description": "Located in Cavelossim, a small fishing village in South Goa, a few minutes walk from Mobor Beach this luxury resort makes for the perfect vacation.",
+      "keywords": [
+        "Cavelossim Beach",
+        "Cavelossim beach hotel",
+        "Karma Royal Haathi Mahal",
+        "Cavelossim Hotel Goa"
+      ]
+    },
+    "banner": {
+      "headline": "Karma Royal Haathi Mahal",
+      "subheadline": "Goa, India"
+    },
+    "intros": {
+      "web": {
+        "text": "Just a seven-minute walk from the pristine silver sands of Cavelossim Beach, this charming and vibrant resort offers everything you need to embrace the Goan way of life. Relax and unwind with cocktails at the swim-up pool bar, rejuvenate with therapeutic spa treatments, or indulge in exquisite cuisine at Casa Lisboa. Beyond the resort’s beautifully landscaped grounds, you’ll find one of India’s most vibrant, welcoming, and dynamic regions, ready to be explored.",
+        "keywords": ["Cavelossim Beach", "Cavelossim beach hotel"]
+      },
+      "app": {
+        "text": "Karma Royal Haathi Mahal, a Cavelossim Hotel Goa, is just seven minutes from Cavelossim Beach. This resort offers relaxation with a swim-up pool bar, an English Pub, signature Karma spa treatments, a fun filled activities center, dining at the Casa Lisboa Restaurant and more. Explore one of India’s most vibrant and welcoming regions just beyond the resort.",
+        "keywords": [
+          "Karma Royal Haathi Mahal",
+          "Cavelossim Beach",
+          "Cavelossim Hotel Goa"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "hl": "Accommodation",
+        "copy": "Your home at Karma Royal Haathi Mahal awaits in one of our spacious hotel rooms with private balconies, or choose from the fully-equipped Members-only apartments, set amidst the resort's lush, landscaped gardens.",
+        "keywords": ["Karma Royal Haathi Mahal"],
+        "categories": [
+          {
+            "shl": "Deluxe Hotel Room",
+            "unit_code": "HU DLX",
+            "occupancy": { "adults": 2, "children_under_10": 0 },
+            "description": "Designed for two guests with twin or double beds, spacious balconies, and a walk-in shower. Includes TV with Satellite Connectivity, Wi-Fi, mini fridge, sofa, tea/coffee maker, and in-room safe. Amenities are replenished as per consumption. Lift access available.",
+            "amenities": [
+              "Twin or Double beds",
+              "TV with Satellite Connectivity",
+              "Wi-Fi",
+              "Walk-in shower",
+              "Sofa",
+              "In-room safe",
+              "Mini fridge",
+              "Tea/Coffee maker"
+            ],
+            "keywords": ["Double bed"]
+          },
+          {
+            "shl": "Studio Deluxe Apartment",
+            "unit_code": "T0DLX",
+            "occupancy": { "adults": 2, "children_under_10": 1 },
+            "description": "A cosy studio with a queen bed, two-seater sofa, en-suite bathroom, kitchenette, and large balcony—ideal for a relaxing, convenient getaway.",
+            "amenities": [
+              "Queen bed",
+              "Two-seater sofa",
+              "Luxury linen & bath amenities",
+              "Premium tea and coffee selection",
+              "Fully equipped kitchenette",
+              "Dining table",
+              "TV with Satellite Connectivity",
+              "Balcony",
+              "Wardrobe with in-room safe",
+              "Luxury furniture and fittings",
+              "Wi-Fi",
+              "Walk-in shower"
+            ],
+            "keywords": ["Queen bed"]
+          },
+          {
+            "shl": "Studio Deluxe Apartment for Three",
+            "unit_code": "T0F(3)",
+            "occupancy": { "adults": 3, "children_under_10": 1 },
+            "description": "A flexible studio featuring a double bed, sofa-cum-bed, kitchenette, large balcony, and walk-in shower—perfect for couples or small families.",
+            "amenities": [
+              "Double bed",
+              "Sofa-cum-bed",
+              "Luxury linen & bath amenities",
+              "Premium tea and coffee selection",
+              "Fully equipped kitchenette",
+              "Dining table",
+              "TV with Satellite Connectivity",
+              "Balcony",
+              "Wardrobe with in-room safe",
+              "Luxury furniture and fittings",
+              "Wi-Fi",
+              "Walk-in shower"
+            ],
+            "keywords": ["Double bed"]
+          },
+          {
+            "shl": "One Bedroom Deluxe Apartment",
+            "unit_code": "T1DLX",
+            "occupancy": { "adults": 4, "children_under_10": 1 },
+            "description": "Private bedroom with double bed and balcony, living room with pull-out sofa bed and TV, bathroom with walk-in shower, dining area and fully equipped kitchenette—your home-away-from-home with resort luxury.",
+            "extras": [
+              "Access to six member-exclusive jacuzzis around the resort"
+            ],
+            "amenities": [
+              "Double bed",
+              "Sofa-cum-bed",
+              "Televisions in bedroom and living room",
+              "Hair dryer",
+              "Fully equipped kitchen",
+              "Microwave",
+              "Double-door refrigerator",
+              "Weighing scale",
+              "Luxury linen & bath amenities",
+              "Premium tea and coffee selection",
+              "Luxury furniture and fittings",
+              "Walk-in shower",
+              "Wi-Fi",
+              "Safe locker"
+            ],
+            "keywords": ["Double bed"]
+          },
+          {
+            "shl": "Two Bedroom Deluxe Apartment",
+            "unit_code": "T2DLX",
+            "occupancy": { "adults": 6, "children_under_10": 1 },
+            "description": "Spacious apartment with a master bedroom (double bed), second bedroom (twin beds), and sofa-cum-bed in the living room—ideal for families. Full kitchen with induction cooktop, microwave, double-door refrigerator, and a 6-seater dining table. Bathrooms with walk-in showers.",
+            "extras": [
+              "Access to six member-exclusive jacuzzis around the resort"
+            ],
+            "amenities": [
+              "Double bed",
+              "Twin beds",
+              "Sofa-cum-bed",
+              "Televisions in bedrooms and living room",
+              "Hair dryers",
+              "Fully equipped kitchen",
+              "Microwave",
+              "Double-door refrigerator",
+              "Weighing scale",
+              "Luxury linen & bath amenities",
+              "Premium tea and coffee selection",
+              "Luxury furniture and fittings",
+              "Walk-in showers",
+              "Balcony",
+              "Wi-Fi",
+              "Safe lockers"
+            ],
+            "keywords": ["Double bed"]
+          }
+        ]
+      },
+      {
+        "hl": "Cuisine",
+        "copy": "At Karma Royal Haathi Mahal, you’ll be spoilt for choice when it comes to dining. Enjoy traditional Pub Grub at Attwood’s Bar - A Karma Clubhouse - a rustic English Pub with a billiards room, library, well-stocked bar, and a secret cinema room tucked away inside!",
+        "keywords": ["Karma Haathi Mahal", "English pub", "Karma Royal Group"],
+        "categories": [
+          {
+            "shl": "Splash Bar",
+            "description": "Take a break from your swim and head to our stylish pool bar, offering signature cocktails, ice-cold beers, and delicious food all day long!",
+            "keywords": ["cocktails", "pool bar"]
+          },
+          {
+            "shl": "Tipsy Tiki Bar",
+            "description": "Poolside Tiki Bar with rum and coconut slushies, Tiki-inspired cocktails, smoothies, and soft-serve ice cream.",
+            "keywords": ["cocktails", "tiki bar"]
+          },
+          {
+            "shl": "Attwood’s Bar",
+            "description": "The Attwood’s Bar - A Karma Clubhouse - is a rustic English Pub with a billiards room, library, well-stocked bar and a secret cinema room. Enjoy a cozy vibe with a full-size pool table and live sports on TV including EPL, IPL and more.",
+            "keywords": [
+              "Karma Haathi Mahal",
+              "English bar",
+              "English Premier League",
+              "IPL cricket"
+            ]
+          },
+          {
+            "shl": "Casa Lisboa",
+            "description": "Enjoy Portuguese/Goan, Indian and European cuisine by award-winning Chef Kundan Jha. Opt for a bespoke candlelit dinner with a personal butler. In-room dining daily 7:30am–10:30pm.",
+            "keywords": [
+              "Karma Haathi Mahal",
+              "European cuisine",
+              "Casa Lisboa"
+            ]
+          }
+        ]
+      },
+      {
+        "hl": "Facilities",
+        "copy": "Each day at Karma Royal Haathi Mahal offers entertainment, relaxation, and adventure. ‘Haathi Mahal’ (Elephant Palace) reflects reverence for Lord Ganesh—spot the Ganesh statues around the property.",
+        "keywords": ["Karma Royal Haathi Mahal"],
+        "categories": [
+          {
+            "shl": "Karma Spa",
+            "description": "Balinese massages, detox steam rituals, manicures, pedicures and facials—pure relaxation and rejuvenation.",
+            "ctas": ["View Spa Menu", "Book Now"],
+            "keywords": [
+              "Balinese massages",
+              "manicures",
+              "pedicures",
+              "facials"
+            ]
+          },
+          {
+            "shl": "Pools and Aqua side",
+            "description": "Cool off in three expansive pools. Kids love the water slide and tranquil waterfall at the aqua play space. With three pools and a built-in whirlpool, there’s room for water polo, swimming, or a peaceful paddle.",
+            "keywords": ["waterfall", "swimming"]
+          },
+          {
+            "shl": "Recreation area",
+            "description": "Next to the main pool: table tennis, carrom, pool, foosball, gaming station, air hockey and board games (chess, monopoly). Also: outdoor coconut shy and bicycles.",
+            "keywords": ["swimming pool", "table tennis"]
+          },
+          {
+            "shl": "Cinema",
+            "description": "Intimate private cinema (access via Attwood’s Pub) with children’s films each afternoon and the latest blockbusters in the evening.",
+            "keywords": ["Bollywood movies"]
+          },
+          {
+            "shl": "Gym",
+            "description": "Fully equipped gym. Trained instructor available for guided stretches and exercises tailored to your body, age and medical considerations.",
+            "keywords": ["Gym"]
+          },
+          {
+            "shl": "Retail",
+            "description": "On-site mini store with groceries, dairy, and beers, wines & spirits for in-room consumption—all at MRP rates.",
+            "keywords": ["beers", "wines"]
+          },
+          {
+            "shl": "Three Monkeys Club",
+            "description": "Exclusive kids’ space near the Activities Centre with daily activities like pot painting, crafts and treasure hunts, plus a play zone and nearby bouncy castle.",
+            "keywords": ["kids club"]
+          },
+          {
+            "shl": "Members’ Lounge",
+            "description": "Member-exclusive lounge by the terrace gardens with comfortable AC seating, library, computer, television and outdoor garden."
+          },
+          {
+            "shl": "Lobby Snack Bar",
+            "description": "Quick bites: freshly made puffs, sandwiches, cakes and coffee—perfect before a day of exploration."
+          }
+        ]
+      },
+      {
+        "hl": "Location",
+        "address": {
+          "line1": "Karma Royal Haathi Mahal",
+          "line2": "Cavelossim",
+          "line3": "Mobor",
+          "line4": "Salcette, Goa",
+          "postal_code": "403731",
+          "country": "India"
+        },
+        "contact": {
+          "phone": "+91 832 672 5300",
+          "email": "hm.guestrelations@karmagroup.com"
+        },
+        "cta": { "label": "Book Now", "url": null },
+        "note": "One of India’s most dynamic, vibrant, and welcoming regions awaits exploration."
+      },
+      {
+        "hl": "Fact Sheet",
+        "copy": "For detailed information about Karma Royal Haathi Mahal, please check the official Fact Sheet.",
+        "cta": {
+          "label": "View Fact Sheet",
+          "url": "https://karmagroup.com/karma-royal-haathi-mahal-fact-sheet/"
+        }
+      }
+    ]
+  }
+}
