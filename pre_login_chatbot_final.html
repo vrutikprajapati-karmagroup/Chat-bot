@@ -834,24 +834,45 @@
       window.open(normalized, "_blank", "noopener");
     }
 
-    function showTopOtherOptions() {
-      if (!siteLinks || !Object.keys(siteLinks).length) {
-        addMessage("bot", "No quick links are configured right now.");
-        return;
-      }
-
+    function buildLimitedSiteLinksButtons(limit = 4) {
       const wrap = document.createElement("div");
       wrap.className = "resorts-options";
 
-      Object.values(siteLinks).forEach(({ label, url }) => {
-        const btn = document.createElement("button");
-        btn.className = "resorts-option-btn";
-        btn.textContent = label;
-        btn.addEventListener("click", () => openExternalLink(url));
-        wrap.appendChild(btn);
-      });
+      const all = Object.values(siteLinks || {}).map(({ label, url }) => ({ label, url }));
 
-      addBotElement(wrap);
+      function render(showAll) {
+        wrap.innerHTML = "";
+        const items = showAll ? all : all.slice(0, limit);
+
+        items.forEach(({ label, url }) => {
+          const btn = document.createElement("button");
+          btn.className = "resorts-option-btn";
+          btn.textContent = label;
+          btn.addEventListener("click", () => openExternalLink(url));
+          wrap.appendChild(btn);
+        });
+
+        const trimmed = all.length > limit;
+
+        if (!showAll && trimmed) {
+          const more = document.createElement("button");
+          more.className = "resorts-option-btn";
+          more.textContent = MORE_OPTIONS_LABEL;
+          more.addEventListener("click", () => render(true));
+          wrap.appendChild(more);
+        }
+
+        if (showAll || !trimmed) {
+          wrap.appendChild(createOthersButton());
+        }
+      }
+
+      render(false);
+      return wrap;
+    }
+
+    function showTopOtherOptions() {
+      addBotElement(buildLimitedSiteLinksButtons(4));
     }
 
 
