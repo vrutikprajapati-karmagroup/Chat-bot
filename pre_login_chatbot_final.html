@@ -422,6 +422,7 @@
       .then((res) => res.json())
       .then((data) => {
         resortData = data.resort;
+        siteLinks = data.site_links || {};
       })
       .catch((err) => console.error("Error loading JSON:", err));
   </script>
@@ -430,6 +431,7 @@
     let currentPage = "login";
     let userName = "";
     let messages = [];
+    let siteLinks = {};
     let currentResort = null;
     let currentStep = "resort";
     let activeFlow = null;
@@ -541,6 +543,7 @@
           <div class="chat-options" id="chat-options">
             <button class="chat-option-btn" onclick="handleChatOption('Resort Info')">Resort Info</button>
             <button class="chat-option-btn" onclick="handleChatOption('AI Help')">AI Help</button>
+            <button class="chat-option-btn" onclick="handleChatOption('Other')">Other</button>
           </div>
 
           <div class="chat-footer">
@@ -599,7 +602,9 @@
             <div class="message-text">
               ${option === "Resort Info"
           ? "Please type the name of the resort you’re interested in."
-          : "Sure! Ask me anything and I'll try my best to help."
+          : option === "AI Help"
+            ? "Sure! Ask me anything and I'll try my best to help."
+            : "Choose a link below."
         }
             </div>
           </div>
@@ -814,9 +819,40 @@
         return;
       }
 
+      if (option === "Other") {
+        resetFlow();
+        renderInfoPage(option);
+        showTopOtherOptions();
+        return;
+      }
+
       addMessage("bot", "Please choose an option above.");
     }
 
+    function openExternalLink(url) {
+      const normalized = /^https?:\/\//i.test(url) ? url : `https://${url}`;
+      window.open(normalized, "_blank", "noopener");
+    }
+
+    function showTopOtherOptions() {
+      if (!siteLinks || !Object.keys(siteLinks).length) {
+        addMessage("bot", "No quick links are configured right now.");
+        return;
+      }
+
+      const wrap = document.createElement("div");
+      wrap.className = "resorts-options";
+
+      Object.values(siteLinks).forEach(({ label, url }) => {
+        const btn = document.createElement("button");
+        btn.className = "resorts-option-btn";
+        btn.textContent = label;
+        btn.addEventListener("click", () => openExternalLink(url));
+        wrap.appendChild(btn);
+      });
+
+      addBotElement(wrap);
+    }
 
 
     function findResortByName(name) {
@@ -890,7 +926,6 @@
         wrap.innerHTML = "";
         const items = showAll ? all : all.slice(0, limit);
 
-        // feature buttons
         items.forEach((f) => {
           const btn = document.createElement("button");
           btn.className = "resorts-option-btn";
@@ -901,18 +936,14 @@
 
         const trimmed = all.length > limit;
 
-        // “More options” only when trimmed and not expanded yet
         if (!showAll && trimmed) {
           const more = document.createElement("button");
           more.className = "resorts-option-btn";
           more.textContent = MORE_OPTIONS_LABEL;
-          more.addEventListener("click", () => render(true)); // expand in place
+          more.addEventListener("click", () => render(true));
           wrap.appendChild(more);
         }
 
-        // Show “Others” ONLY if:
-        // 1) expanded (showAll), OR
-        // 2) not trimmed at all (<= limit) so “More options” isn’t present
         if (showAll || !trimmed) {
           wrap.appendChild(createOthersButton());
         }
