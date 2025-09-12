@@ -414,6 +414,7 @@
     <main class="main-content" id="main-content"></main>
   </div>
 
+  <!-- Your mic-to-text logic in a separate file -->
   <script src="mic-to-text.js"></script>
   <script>
     let resortData = null;
@@ -870,57 +871,45 @@
     }
 
     function makeFeatureButtons(resort, excludeKey) {
-      return buildLimitedFeatureButtons(resort, excludeKey, 4);
-    }
-
-
-
-    function showResortFeatures(resort) {
-      const wrap = buildLimitedFeatureButtons(resort, null, 4);
-      addBotElement(wrap);
-    }
-
-    function buildLimitedFeatureButtons(resort, excludeKey = null, limit = 4) {
       const wrap = document.createElement("div");
       wrap.className = "resorts-options";
 
-      const all = (resort.features || []).filter(f => f.key !== excludeKey);
+      (resort.features || []).forEach((f) => {
+        if (f.key === excludeKey) return;
+        const btn = document.createElement("button");
+        btn.className = "resorts-option-btn";
+        btn.textContent = f.title;
+        btn.addEventListener("click", () => handleFeatureSelection(f.key));
+        wrap.appendChild(btn);
+      });
 
-      function render(showAll) {
-        wrap.innerHTML = "";
-        const items = showAll ? all : all.slice(0, limit);
+      wrap.appendChild(createOthersButton());
 
-        // feature buttons
-        items.forEach((f) => {
-          const btn = document.createElement("button");
-          btn.className = "resorts-option-btn";
-          btn.textContent = f.title;
-          btn.addEventListener("click", () => handleFeatureSelection(f.key));
-          wrap.appendChild(btn);
-        });
-
-        const trimmed = all.length > limit;
-
-        // “More options” only when trimmed and not expanded yet
-        if (!showAll && trimmed) {
-          const more = document.createElement("button");
-          more.className = "resorts-option-btn";
-          more.textContent = MORE_OPTIONS_LABEL;
-          more.addEventListener("click", () => render(true)); // expand in place
-          wrap.appendChild(more);
-        }
-
-        // Show “Others” ONLY if:
-        // 1) expanded (showAll), OR
-        // 2) not trimmed at all (<= limit) so “More options” isn’t present
-        if (showAll || !trimmed) {
-          wrap.appendChild(createOthersButton());
-        }
-      }
-
-      render(false);
       return wrap;
     }
+
+
+    function showResortFeatures(resort) {
+      // addMessage("bot", `You selected <b>${resort.name}</b>. Choose a feature:`);
+
+      const wrap = document.createElement("div");
+      wrap.className = "resorts-options";
+
+      (resort.features || []).forEach((feature) => {
+        const btn = document.createElement("button");
+        btn.className = "resorts-option-btn";
+        btn.textContent = feature.title;
+        btn.addEventListener("click", () => handleFeatureSelection(feature.key));
+        wrap.appendChild(btn);
+      });
+
+      wrap.appendChild(createOthersButton());
+
+      addBotElement(wrap);
+
+      // addMessage("bot", "Tip: type a resort name to switch resorts. Use the buttons to view features.");
+    }
+
 
     function handleFeatureSelection(featureKey) {
       const exists = (currentResort?.features || []).some((f) => f.key === featureKey);

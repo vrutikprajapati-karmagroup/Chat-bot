@@ -46,6 +46,7 @@
       width: 70%;
     }
 
+    /* Header */
     .header {
       display: flex;
       align-items: center;
@@ -83,6 +84,7 @@
       object-fit: contain;
     }
 
+    /* Main */
     .main-content {
       flex: 1;
       overflow-y: auto;
@@ -91,6 +93,7 @@
       flex-direction: column;
     }
 
+    /* Login */
     .login-content {
       display: flex;
       flex-direction: column;
@@ -352,7 +355,9 @@
       border: 1px solid #998363;
       border-radius: 20px;
       background: #f7f3e8;
+      /* Light beige background */
       color: #333;
+      /* Dark text color */
       cursor: pointer;
       text-decoration: none;
       font-size: 14px;
@@ -361,13 +366,17 @@
 
     .resorts-option-btn:hover {
       background: #8d714c;
+      /* Brown background on hover */
       color: #fff;
+      /* White text on hover */
       border-color: #8d714c;
+      /* Dark border on hover */
       text-decoration: none;
     }
 
     .resort-title {
       color: #333;
+      /* Dark text for headings */
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 10px;
@@ -414,6 +423,7 @@
     <main class="main-content" id="main-content"></main>
   </div>
 
+  <!-- Your mic-to-text logic in a separate file -->
   <script src="mic-to-text.js"></script>
   <script>
     let resortData = null;
@@ -436,7 +446,6 @@
 
     const OTHERS_LABEL = "Others";
     const OTHERS_LINK = "https://karmaclub.karmagroup.com/member/offers/";
-    const MORE_OPTIONS_LABEL = "More options";
 
     const mainContent = document.getElementById("main-content");
     const NAME_KEY = "kg_chat_name";
@@ -457,7 +466,7 @@
       const btn = document.createElement("button");
       btn.className = "resorts-option-btn";
       btn.textContent = OTHERS_LABEL;
-      btn.addEventListener("click", () => showOthersInfo());
+      btn.addEventListener("click", () => showOthersInfo()); // <-- changed
       return btn;
     }
 
@@ -468,11 +477,13 @@
     <p>For more details please go to the link below:</p>
     <p><a href="${OTHERS_LINK}" target="_blank" rel="noopener">Open link</a></p>
   `;
-      addMessage("bot", html);
+      addMessage("bot", html); // same bubble styling as resort description
     }
 
     function scrollChatToBottom() {
+      // Scroll the main content container (which includes messages and input)
       const mainContent = document.getElementById("main-content");
+      // console.log(mainContent.scrollHeight);
       if (mainContent) {
         mainContent.scrollTop = mainContent.scrollHeight;
         console.log(mainContent.scrollHeight);
@@ -634,12 +645,13 @@
         btn.textContent = feature.title;
         btn.onclick = () => {
           addMessage("user", feature.title);
-          showFeatureDetails(feature.key);
+          showFeatureDetails(feature.key); // Show feature details when the button is clicked
         };
         btnsDiv.appendChild(btn);
       });
     }
 
+    // update your existing addBotElement to scroll at the end
     function addBotElement(element) {
       const chatMessagesDiv = document.getElementById("chat-messages");
       if (!chatMessagesDiv) return;
@@ -652,11 +664,13 @@
   `;
       messageElement.appendChild(element);
       chatMessagesDiv.appendChild(messageElement);
+      // ensure we scroll to the newest content
       const mainContent = document.getElementById("main-content");
       if (mainContent) mainContent.scrollTop = mainContent.scrollHeight;
     }
 
 
+    // Show section details in chat style
     function showResortSectionChat(sectionIdx) {
       const section = resortData.features[sectionIdx];
       let html = `<strong style="color:#8b6f3d;">${section.title}</strong><br>`;
@@ -667,6 +681,7 @@
       addMessage("bot", html);
     }
 
+    // Show category details in chat style
     function showCategoryDetailChat(cat) {
       let html = `<strong style="color:#8b6f3d;">${cat.shl || ""
         }</strong><br>`;
@@ -713,6 +728,7 @@
       messageElement.innerHTML = html;
       chatMessagesDiv.appendChild(messageElement);
 
+      // Scroll to the bottom after adding the message
       scrollChatToBottom();
     }
 
@@ -738,6 +754,7 @@
           }
         );
         const data = await response.json();
+        // Remove "Thinking..." message
         const chatMessagesDiv = document.getElementById("chat-messages");
         if (
           chatMessagesDiv &&
@@ -758,26 +775,48 @@
     function sendFromInput() {
       const input = document.getElementById("chat-input");
       if (!input) return;
-
       const val = (input.value || "").trim();
       if (!val) return;
 
       addMessage("user", val);
 
-      if (!resortData) {
-        addMessage("bot", "Loading resort data… please try again in a moment.");
-        input.value = "";
-        return;
-      }
+      // FLOW GATE
+      if (activeFlow === "resort") {
+        // Resort Info flow only
+        if (!resortData && currentStep === "resort") {
+          addMessage("bot", "Loading resort data… please try again in a moment.");
+          input.value = "";
+          return;
+        }
 
-      const resort = findResortByName(val);
-      if (resort) {
-        currentResort = resort;
-        currentStep = "feature";
-        showResortDetails(resort);
-        showResortFeatures(resort);
+        if (currentStep === "resort") {
+          const resort = findResortByName(val);
+          if (resort) {
+            currentResort = resort;
+            currentStep = "feature";
+            showResortDetails(resort);     // description + link
+            showResortFeatures(resort);    // feature buttons (incl. Others)
+          } else {
+            addMessage("bot", "Sorry, I couldn't find a resort with that name. Please try again.");
+          }
+        } else if (currentStep === "feature") {
+          const feature = currentResort.features.find((f) =>
+            f.title.toLowerCase().includes(val.toLowerCase())
+          );
+          if (feature) {
+            showFeatureDetails(feature.key);  // IMPORTANT: pass key, not object
+          } else {
+            addMessage("bot", "Sorry, I couldn't find a feature with that name. Please try again.");
+          }
+        }
+
+      } else if (activeFlow === "ai") {
+        // AI Help flow → send to Gemini (or your own handler)
+        askGeminiDirect(val);
+
       } else {
-        addMessage("bot", "Sorry, I couldn't find a resort with that name. Please try again.");
+        // Not in any flow yet
+        addMessage("bot", "Please choose an option above: Resort Info or AI Help.");
       }
 
       input.value = "";
@@ -814,13 +853,14 @@
         return;
       }
 
+      // any other future options
       addMessage("bot", "Please choose an option above.");
     }
 
 
 
     function findResortByName(name) {
-      if (!resortData) return null;
+      if (!resortData) return null; // still loading
       const normalizedInput = name.toLowerCase().trim();
       return resortData.name.toLowerCase().includes(normalizedInput) ? resortData : null;
     }
@@ -866,60 +906,48 @@
   `;
       addMessage("bot", html);
 
+      // Buttons (other features + hardcoded Others) right below
       addBotElement(makeFeatureButtons(currentResort, featureKey));
     }
 
+
+
     function makeFeatureButtons(resort, excludeKey) {
-      return buildLimitedFeatureButtons(resort, excludeKey, 4);
-    }
-
-
-
-    function showResortFeatures(resort) {
-      const wrap = buildLimitedFeatureButtons(resort, null, 4);
-      addBotElement(wrap);
-    }
-
-    function buildLimitedFeatureButtons(resort, excludeKey = null, limit = 4) {
       const wrap = document.createElement("div");
       wrap.className = "resorts-options";
 
-      const all = (resort.features || []).filter(f => f.key !== excludeKey);
+      (resort.features || []).forEach((f) => {
+        if (f.key === excludeKey) return;
+        const btn = document.createElement("button");
+        btn.className = "resorts-option-btn";
+        btn.textContent = f.title;
+        btn.addEventListener("click", () => handleFeatureSelection(f.key));
+        wrap.appendChild(btn);
+      });
 
-      function render(showAll) {
-        wrap.innerHTML = "";
-        const items = showAll ? all : all.slice(0, limit);
+      // Always add "Others"
+      wrap.appendChild(createOthersButton());
 
-        // feature buttons
-        items.forEach((f) => {
-          const btn = document.createElement("button");
-          btn.className = "resorts-option-btn";
-          btn.textContent = f.title;
-          btn.addEventListener("click", () => handleFeatureSelection(f.key));
-          wrap.appendChild(btn);
-        });
-
-        const trimmed = all.length > limit;
-
-        // “More options” only when trimmed and not expanded yet
-        if (!showAll && trimmed) {
-          const more = document.createElement("button");
-          more.className = "resorts-option-btn";
-          more.textContent = MORE_OPTIONS_LABEL;
-          more.addEventListener("click", () => render(true)); // expand in place
-          wrap.appendChild(more);
-        }
-
-        // Show “Others” ONLY if:
-        // 1) expanded (showAll), OR
-        // 2) not trimmed at all (<= limit) so “More options” isn’t present
-        if (showAll || !trimmed) {
-          wrap.appendChild(createOthersButton());
-        }
-      }
-
-      render(false);
       return wrap;
+    }
+
+
+    function showResortFeatures(resort) {
+
+      const wrap = document.createElement("div");
+      wrap.className = "resorts-options";
+
+      (resort.features || []).forEach((feature) => {
+        const btn = document.createElement("button");
+        btn.className = "resorts-option-btn";
+        btn.textContent = feature.title;
+        btn.addEventListener("click", () => handleFeatureSelection(feature.key));
+        wrap.appendChild(btn);
+      });
+
+      wrap.appendChild(createOthersButton());
+
+      addBotElement(wrap);
     }
 
     function handleFeatureSelection(featureKey) {
@@ -930,6 +958,7 @@
       }
       showFeatureDetails(featureKey);
     }
+
 
   </script>
 </body>

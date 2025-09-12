@@ -1,0 +1,148 @@
+{
+  "brand": "Karma Group",
+  "goal": "Post-login chatbot → redirect members to website pages; for resort features, always include the resort link.",
+  "site_links": {
+    "karma_curated": {
+      "label": "Karma Curated Events",
+      "url": "https://karmaclub.karmagroup.com/karma-curated-events/"
+    },
+    "karma_nomad": {
+      "label": "Karma Nomad - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/karma-nomad/"
+    },
+    "points": {
+      "label": "Points Table - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/points-table/"
+    },
+    "karma_community": {
+      "label": " Karma Community",
+      "url": "https://karmacommunity.karmagroup.com/members-corner/"
+    },
+    "travel_and_lifestyle": {
+      "label": "Travel and Lifestyle",
+      "url": "https://karmaclub.karmagroup.com/member/travel-lifestyle/"
+    },
+    "member_offers": {
+      "label": "Member Offers - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/offers/"
+    },
+    "affiliate_bonus": {
+      "label": "Bonus Weeks Offer - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/bonus-weeks-offer/"
+    },
+    "hot_deals": {
+      "label": "Hot Deals - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/karma-alliance-offer/"
+    },
+    "karma_alliance": {
+      "label": "Karma Alliance Offer - Karma Club",
+      "url": "Karma Alliance Offer - Karma Club"
+    }
+  },
+  "resort": {
+    "name": "Karma Royal Haathi Mahal",
+    "booking_link": {
+      "Description": "Just a seven-minute walk from the pristine silver sands of Cavelossim Beach, this charming and vibrant resort offers everything you need to embrace the Goan way of life.",
+      "label": "Search & Book Karma Group - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/"
+    },
+    "resort_link": {
+      "label": "Karma Royal Haathi Mahal, Goa, India - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+    },
+    "features": [
+      {
+        "key": "overview",
+        "title": "About the Resort",
+        "description": "Seven-minute walk to Cavelossim Beach; landscaped grounds, swim-up pool bar, Karma Spa, Casa Lisboa dining and vibrant South Goa at your doorstep.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "cuisine_splash_bar",
+        "title": "Splash Bar",
+        "description": "Swim-up pool bar with signature cocktails, ice-cold beers and all-day bites.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "cuisine_tipsy_tiki",
+        "title": "Tipsy Tiki Bar",
+        "description": "Tiki-inspired cocktails, rum & coconut slushies, smoothies and soft-serve ice cream by the pool.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "cuisine_attwoods",
+        "title": "Attwood’s Bar – A Karma Clubhouse",
+        "description": "Rustic English pub with billiards, library, a secret cinema and live sports (EPL, IPL).",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "cuisine_casa_lisboa",
+        "title": "Casa Lisboa",
+        "description": "Portuguese/Goan, Indian and European dishes by Chef Kundan Jha; bespoke candlelit dinners; in-room dining 7:30–22:30.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_spa",
+        "title": "Karma Spa",
+        "description": "Balinese massages, detox steam rituals, manicures, pedicures and facials. Actions: View Spa Menu / Book Now.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_pools",
+        "title": "Pools & Aquaside",
+        "description": "Three large pools with waterfall, slide and whirlpool—space for water polo, laps or a peaceful paddle.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_recreation",
+        "title": "Recreation Area",
+        "description": "Table tennis, carom, pool, foosball, gaming station, air hockey, board games; outdoor coconut shy and bicycles.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_cinema",
+        "title": "Cinema",
+        "description": "Private cinema via Attwood’s Pub—kids’ films afternoons, latest blockbusters nightly.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_gym",
+        "title": "Gym",
+        "description": "Fully equipped gym; instructor support tailored to age and medical needs.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_retail",
+        "title": "Retail",
+        "description": "On-site mini store with groceries and beverages at MRP for in-room consumption.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_kids",
+        "title": "Three Monkeys Club",
+        "description": "Kids’ club with crafts, treasure hunts, play zone and nearby bouncy castle.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_members_lounge",
+        "title": "Members’ Lounge",
+        "description": "Member-exclusive AC lounge by terrace gardens with library, computer and television.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "facility_lobby_snack_bar",
+        "title": "Lobby Snack Bar",
+        "description": "Fresh puffs, sandwiches, cakes and coffee for quick bites on the go.",
+        "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      {
+        "key": "location_contact",
+        "title": "Location & Contact",
+        "description": "Cavelossim, Mobor, Salcette, Goa 403731, India. Tel: +91 832 672 5300 · Email: hm.guestrelations@karmagroup.com",
+        "resort_link": "https://www.google.com/maps/place/Karma+Royal+Haathi+Mahal/@15.175527,73.948106,16z/data=!4m5!3m4!1s0x0:0x4c50384032d9266c!8m2!3d15.1755268!4d73.9481058?hl=en-US"
+      }
+    ]
+  }
+}
+
+
