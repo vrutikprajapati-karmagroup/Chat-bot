@@ -1,0 +1,42 @@
+{
+  "brand": "Karma Group",
+  "goal": "Post-login chatbot → redirect members to website pages; for resort features, always include the resort link.",
+  "site_links": {
+    "karma_curated": {
+      "label": "Karma Curated Events",
+      "url": "https://karmaclub.karmagroup.com/karma-curated-events/"
+    },
+    "karma_nomad": {
+      "label": "Karma Nomad - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/karma-nomad/"
+    },
+    "points": {
+      "label": "Points Table - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/points-table/"
+    },
+    "karma_community": {
+      "label": " Karma Community",
+      "url": "https://karmacommunity.karmagroup.com/members-corner/"
+    },
+    "travel_and_lifestyle": {
+      "label": "Travel and Lifestyle",
+      "url": "https://karmaclub.karmagroup.com/member/travel-lifestyle/"
+    },
+    "member_offers": {
+      "label": "Member Offers - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/offers/"
+    },
+    "affiliate_bonus": {
+      "label": "Bonus Weeks Offer - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/bonus-weeks-offer/"
+    },
+    "hot_deals": {
+      "label": "Hot Deals - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/karma-alliance-offer/"
+    },
+    "karma_alliance": {
+      "label": "Karma Alliance Offer - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/karma-alliance-offer/"
+    }
+  }
+}

@@ -629,6 +629,22 @@
       document.querySelector(".back-btn").style.display = "flex";
     }
 
+    // function renderResortMainButton() {
+    //   const btnsDiv = document.getElementById("resort-main-btns");
+    //   btnsDiv.innerHTML = "";
+
+    //   resortData.features.forEach((feature) => {
+    //     const btn = document.createElement("button");
+    //     btn.className = "resorts-option-btn";
+    //     btn.textContent = feature.title;
+    //     btn.onclick = () => {
+    //       addMessage("user", feature.title);
+    //       showFeatureDetails(feature.key);
+    //     };
+    //     btnsDiv.appendChild(btn);
+    //   });
+    // }
+
     function addBotElement(element) {
       const chatMessagesDiv = document.getElementById("chat-messages");
       if (!chatMessagesDiv) return;
@@ -644,6 +660,41 @@
       const mainContent = document.getElementById("main-content");
       if (mainContent) mainContent.scrollTop = mainContent.scrollHeight;
     }
+
+
+    // function showResortSectionChat(sectionIdx) {
+    //   if (!currentResort) return;
+    //   const section = currentResort.features[sectionIdx];
+    //   if (!section) return;
+    //   let html = `<strong style="color:#8b6f3d;">${section.title}</strong><br>`;
+    //   if (section.description) html += `<p>${section.description}</p>`;
+    //   const url = typeof section.resort_link === "string" ? section.resort_link : section.resort_link?.url;
+    //   if (url) html += `<p><a href="${url}" target="_blank">Learn more</a></p>`;
+    //   addMessage("bot", html);
+    // }
+
+    // function showCategoryDetailChat(cat) {
+    //   let html = `<strong style="color:#8b6f3d;">${cat.shl || ""
+    //     }</strong><br>`;
+    //   if (cat.description) html += `<p>${cat.description}</p>`;
+    //   if (cat.occupancy) {
+    //     html += `<p><strong>Occupancy:</strong> ${cat.occupancy.adults} adults`;
+    //     if (cat.occupancy.children_under_10)
+    //       html += `, ${cat.occupancy.children_under_10} child(ren) under 10`;
+    //     html += `</p>`;
+    //   }
+    //   if (cat.amenities && cat.amenities.length) {
+    //     html += `<p><strong>Amenities:</strong></p><ul style="padding-left: 10px;">`;
+    //     cat.amenities.forEach((am) => (html += `<li>${am}</li>`));
+    //     html += `</ul>`;
+    //   }
+    //   if (cat.extras && cat.extras.length) {
+    //     html += `<p><strong>Extras:</strong></p><ul style="padding-left: 10px;>`;
+    //     cat.extras.forEach((ex) => (html += `<li>${ex}</li>`));
+    //     html += `</ul>`;
+    //   }
+    //   addMessage("bot", html);
+    // }
 
     function addMessage(sender, text) {
       const chatMessagesDiv = document.getElementById("chat-messages");
@@ -673,6 +724,7 @@
     }
 
     async function askGeminiDirect(question) {
+      addMessage("user", question);
       addMessage("bot", "Thinking...");
       try {
         const response = await fetch(
