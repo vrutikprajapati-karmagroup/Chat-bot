@@ -1,0 +1,188 @@
+{
+  "brand": "Karma Group",
+  "goal": "Post-login chatbot → redirect members to website pages; for resort features, always include the resort link.",
+  "site_links": {
+    "karma_curated": {
+      "label": "Karma Curated Events",
+      "url": "https://karmaclub.karmagroup.com/karma-curated-events/"
+    },
+    "karma_nomad": {
+      "label": "Karma Nomad - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/karma-nomad/"
+    },
+    "points": {
+      "label": "Points Table - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/points-table/"
+    },
+    "karma_community": {
+      "label": " Karma Community",
+      "url": "https://karmacommunity.karmagroup.com/members-corner/"
+    },
+    "travel_and_lifestyle": {
+      "label": "Travel and Lifestyle",
+      "url": "https://karmaclub.karmagroup.com/member/travel-lifestyle/"
+    },
+    "member_offers": {
+      "label": "Member Offers - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/offers/"
+    },
+    "affiliate_bonus": {
+      "label": "Bonus Weeks Offer - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/bonus-weeks-offer/"
+    },
+    "hot_deals": {
+      "label": "Hot Deals - Karma Club",
+      "url": "https://karmaclub.karmagroup.com/member/search-book/affiliate/karma-alliance-offer/"
+    },
+    "karma_alliance": {
+      "label": "Karma Alliance Offer - Karma Club",
+      "url": "Karma Alliance Offer - Karma Club"
+    }
+  },
+  "resorts": [
+    {
+      "name": "Karma Royal Haathi Mahal",
+      "booking_link": {
+        "Description": "Just a seven-minute walk from the pristine silver sands of Cavelossim Beach, this charming and vibrant resort offers everything you need to embrace the Goan way of life.",
+        "label": "Search & Book Karma Group - Karma Club",
+        "url": "https://karmaclub.karmagroup.com/member/search-book/"
+      },
+      "resort_link": {
+        "label": "Karma Royal Haathi Mahal, Goa, India - Karma Club",
+        "url": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+      },
+      "features": [
+        {
+          "key": "accommodation",
+          "title": "Accommodation",
+          "description": "Your home throughout your stay in Karma Royal Haathi Mahal is in one of 65 spacious hotel rooms with private balconies – or check into one of our 80 fully-equipped Members only apartments, dotted throughout the beautiful landscaped gardens.",
+          "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/",
+          "accommodation_list": [
+            "Studio Deluxe Apartment",
+            "Studio Deluxe Apartment for Three",
+            "One Bedroom Deluxe Apartment",
+            "Two Bedroom Deluxe Apartment"
+          ]
+        },
+        {
+          "key": "cuisine",
+          "title": "Cuisine",
+          "description": "You will be spoilt for choice when it comes to dining at Karma Royal Haathi Mahal. Our English pub named after the late Mark Attwood, our co-founder and former Sales & Marketing Director of Karma Royal Group, offers traditional English pub grub.",
+          "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/",
+          "cuisine_list": [
+            "Splash! Bar",
+            "Attwood's Bar",
+            "Casa Lisboa"
+          ]
+        },
+        {
+          "key": "facilities",
+          "title": "Facilities",
+          "description": "From the moment you rise from your well-deserved slumber each day you are faced with a feast of opportunities for entertainment, relaxation and adventure.",
+          "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/",
+          "facilities_list": [
+            {
+              "name": "Karma Spa",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            },
+            {
+              "name": "Pools and Aqua Slide",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            },
+            {
+              "name": "Recreation Area",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            },
+            {
+              "name": "Cinema",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            },
+            {
+              "name": "Gym",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            },
+            {
+              "name": "Retail",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            },
+            {
+              "name": "Three Monkeys Club",
+              "url_link": "https://karmagroup.com/find-destination/karma-royal/royal-haathi-mahal/"
+            }
+          ]
+        },
+        {
+          "key": "gallery",
+          "title": "Gallery",
+          "description": "To check gallery please click on this link ",
+          "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/"
+        },
+        {
+          "key": "fact_sheet",
+          "title": "Fact Sheet",
+          "description": "To check fact sheet please click on this link ",
+          "resort_link": "https://karmagroup.com/karma-royal-haathi-mahal-fact-sheet/"
+        }
+      ]
+    },
+    {
+      "name": "Karma Utopia",
+      "booking_link": {
+        "Description": "A modern resort hotel situated in the heart of Manali facing the pristine Kullu valley amidst towering cedar trees and snow capped mountain peaks in the distance. Walking distance from the 15th century Hadimba Devi temple.",
+        "label": "Book Karma Utopia",
+        "url": "https://karmaclub.karmagroup.com/member/search-book/internal/?resort=Karma%20Utopia"
+      },
+      "resort_link": {
+        "label": "Karma Utopia",
+        "url": "https://karmaclub.karmagroup.com/destination/karma-utopia/"
+      },
+      "features": [
+        {
+          "key": "accommodation",
+          "title": "Accommodation",
+          "description": "Well appointed rooms with all modern comforts including hot and cold air conditioning, wooden flooring, Victornian style furniture, plush beds and magnificent views. Amenities include electric kettles, mini refrigerators, large wardrobes and 43 inch LED TVs.",
+          "resort_link": "https://karmagroup.com/find-destination/karma-retreats/karma-utopia/",
+          "accommodation_list": [
+            "Hotel Unit Sleeping 2",
+            "Hotel Unit Sleeping 2+2 Kids"
+          ]
+        },
+        {
+          "key": "cuisine",
+          "title": "Cuisine",
+          "description": "Himachali Cuisine is a reflection of the region’s rich culture and tradition – from the Kangri Dhaam – an array of local dishes cooked in copper pots usually on special occasions, to the humble ‘siddu’ – a steamed bun stuffed with minced walnuts and local vegetables. Seasonal ingredients play a major role in local cuisine.",
+          "resort_link": "https://karmagroup.com/find-destination/karma-retreats/karma-utopia/",
+          "cuisine_list": []
+        },
+        {
+          "key": "facilities",
+          "title": "Facilities",
+          "description": "Resort facilities include a 50 cover all day dining restaurant and a swimming pool.",
+          "resort_link": "https://karmaclub.karmagroup.com/destination/karma-royal-haathi-mahal/",
+          "facilities_list": [
+            {
+              "name": "Swimming Pool",
+              "url_link": "https://karmagroup.com/find-destination/karma-retreats/karma-utopia/"
+            },
+            {
+              "name": "Restaurant",
+              "url_link": "https://karmagroup.com/find-destination/karma-retreats/karma-utopia/"
+            }
+          ]
+        },
+        {
+          "key": "gallery",
+          "title": "Gallery",
+          "description": "To check gallery please click on this link ",
+          "resort_link": "https://karmagroup.com/find-destination/karma-retreats/karma-utopia/"
+        },
+        {
+          "key": "fact_sheet",
+          "title": "Fact Sheet",
+          "description": "To check fact sheet please click on this link ",
+          "resort_link": "https://karmagroup.com/documents/karma-utopia-fact-sheet/"
+        }
+      ]
+    }
+  ]
+}

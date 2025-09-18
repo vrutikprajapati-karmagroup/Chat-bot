@@ -462,7 +462,10 @@
       btn.addEventListener("click", () => showOthersInfo());
       return btn;
     }
-
+    function toggleChatFooter(show) {
+      const f = document.getElementById("chat-footer");
+      if (f) f.style.display = show ? "block" : "none";
+    }
 
     function showOthersInfo() {
       const html = `
@@ -490,8 +493,11 @@
       document.querySelector(".chatbot-container").style.display = "none";
     }
 
-
-
+    function scrollSoon() {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(scrollChatToBottom);
+      });
+    }
     function openChat() {
       const container = document.querySelector(".chatbot-container");
       container.style.display = "flex";
@@ -533,35 +539,36 @@
 
     function renderChat() {
       mainContent.innerHTML = `
-        <div class="chat-content" style="display:flex;">
-          <div class="form-logo">
-            <img src="images/header-bot.svg" alt="Bot">
-          </div>
+    <div class="chat-content" style="display:flex;">
+      <div class="form-logo">
+        <img src="images/header-bot.svg" alt="Bot">
+      </div>
 
-          <div class="chat-messages-container" id="chat-messages"></div>
+      <div class="chat-messages-container" id="chat-messages"></div>
 
-          <div class="chat-options" id="chat-options">
-            <button class="chat-option-btn" onclick="handleChatOption('Resort Info')">Resort Info</button>
-            <button class="chat-option-btn" onclick="handleChatOption('AI Help')">AI Help</button>
-            <button class="chat-option-btn" onclick="handleChatOption('Other')">Other</button>
-          </div>
+      <div class="chat-options" id="chat-options">
+        <button class="chat-option-btn" onclick="handleChatOption('Resort Info')">Resort Info</button>
+        <button class="chat-option-btn" onclick="handleChatOption('AI Help')">AI Help</button>
+        <button class="chat-option-btn" onclick="handleChatOption('Other')">Other</button>
+      </div>
 
-          <div class="chat-footer">
-            <div class="chat-input-row">
-              <div class="chat-input-container">
-                <input type="text" class="chat-input" id="chat-input" placeholder="Ask or press the mic">
-                <button class="chat-mic-btn" id="mic-btn" aria-pressed="false" onclick="toggleMic()">
-                  <img src="images/mic-icon.svg" alt="Mic">
-                </button>
-              </div>
-              <button class="chat-send-btn" id="chat-send-btn" onclick="sendFromInput()">
-                <img src="images/send-button.svg" alt="Send">
-              </button>
-            </div>
+      <div class="chat-footer" id="chat-footer" style="display:none;">
+        <div class="chat-input-row">
+          <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chat-input" placeholder="Type here...">
+            <button class="chat-mic-btn" id="mic-btn" aria-pressed="false" onclick="toggleMic()">
+              <img src="images/mic-icon.svg" alt="Mic">
+            </button>
           </div>
+          <button class="chat-send-btn" id="chat-send-btn" onclick="sendFromInput()">
+            <img src="images/send-button.svg" alt="Send">
+          </button>
         </div>
-      `;
-      addMessage("bot", `Hey, ${userName || "there"}! How can I help?`);
+      </div>
+    </div>
+  `;
+      addMessage("bot", `Hey, ${userName || "there"}! <br>Select an option below to get started.`);
+      toggleChatFooter(false);
     }
 
     function goBackToChat() {
@@ -569,8 +576,8 @@
       currentPage = "chat";
       renderApp();
       document.querySelector(".back-btn").style.display = "none";
+      toggleChatFooter(false);
     }
-
 
 
     function renderInfoPage(option) {
@@ -594,23 +601,24 @@
             <div class="message-text">${option}</div>
           </div>
         </div>
-        <div class="message bot">
-          <div class="bot-avatar">
-            <img src="images/bot-avatar.svg" alt="Bot Avatar" style="width:32px;height:32px;">
-          </div>
-          <div class="message-bubble">
-            <div class="message-text">
-              ${option === "Resort Info"
+<div class="message bot">
+  <div class="bot-avatar">
+    <img src="images/bot-avatar.svg" alt="Bot Avatar" style="width:32px;height:32px;">
+  </div>
+  <div class="message-bubble">
+    <div class="message-text">
+      Hey, ${userName || "there"}!<br>${option === "Resort Info"
           ? "Please type the name of the resort you’re interested in."
           : option === "AI Help"
-            ? "Sure! Ask me anything and I'll try my best to help."
+            ? "Ask me anything and I’ll try my best to help."
             : "Choose a link below."
         }
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
+</div>
+
       </div>
-      <div class="chat-footer">
+      <div class="chat-footer" id="chat-footer" style="display:none;">
         <div class="chat-input-row">
           <div class="chat-input-container">
             <input type="text" class="chat-input" id="chat-input" placeholder="Type here...">
@@ -769,6 +777,8 @@
         resetFlow();
         activeFlow = "resort";
         renderInfoPage(option);
+        toggleChatFooter(true);
+        scrollSoon();           // <— auto scroll
         return;
       }
 
@@ -776,6 +786,8 @@
         resetFlow();
         activeFlow = "ai";
         renderInfoPage(option);
+        toggleChatFooter(true);
+        scrollSoon();           // <— auto scroll
         return;
       }
 
@@ -783,6 +795,7 @@
         resetFlow();
         activeFlow = "other";
         renderInfoPage(option);
+        toggleChatFooter(false);
         showTopOtherOptions();
         return;
       }
